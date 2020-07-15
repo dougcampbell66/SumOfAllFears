@@ -49,63 +49,83 @@
 
     <!-- Page Content -->
     <div class="container">
+
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1 class="mt-5">Sum of All Fears</h1>
-                <p class="lead">Test the Code</p>
+                <p class="lead">Can You Add Two Numbers?</p>
                 <ul class="list-unstyled">
-                    <li>The Array of Numbers:</li>
-                    <li>(#soafArray</li>
+                    <li>Pick any two of the following numbers:</li>
+                    <li><h4>10, 15, 3, 7</h4></li>
+                    <li>Add the two numbers and enter the answer below.</li>
                 </ul>
             </div>
         </div>
-        <hr class="dashed">
+
         <div class="row">
             <div class="col-lg-12 text-center">
-                <input id="soafInput" type="number">
-                <button id="soafBtn" class="btn-warning">Sum the Fears</button>
+                <input id="sumInput" type="number"><br /><br />
             </div>
         </div>
-        <hr class="dashed">
+
         <div class="row">
-            <p id="soafOutput"></p>
+            <div class="col-lg-12 text-center">
+                <ul class="list-unstyled">
+                    <li>Now, click the Blue button to check your answer</li>
+                </ul>
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <button id="sumBtn" class="btn btn-primary btn-lg">Sum the Fears</button>
+            </div>
+        </div>
+
+        <hr class="dashed">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p id="sumOutput"></p>
+            </div>
+        </div>
+        
     </div>
 
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script>
 
-        $('#soafBtn').on('click', function () {
-            let soafArray = [10, 15, 3, 7];
-            console.log("The array is " + soafArray)
-            let k = Number($("#soafInput").val());
-            console.log("K is " + k)
-            for (let loop = 0; loop < soafArray.length; loop++) {
-                let checkNum = k - soafArray[loop];
-                console.log("The checkNum is " + checkNum);
-                console.log("We are on the " + loop + " loop");
-                for (let innerLoop = loop + 1; innerLoop < soafArray.length; innerLoop++) {
-                    console.log("We are on the inner loop " + innerLoop + " loop");
-                    let innerCheck = soafArray[innerLoop];
-                    console.log("Inner check is " + innerCheck)
-                    if (checkNum == innerCheck) {
-                        $("#soafOutput").text(`K value found! ${soafArray[loop]} + ${soafArray[innerLoop]} = ${k}!`)
-                        return;
+            $('#sumBtn').on('click', function () {
+                let sumArray = [10, 15, 3, 7];
+                console.log("The array is " + sumArray)
+                let k = Number($("#sumInput").val());
+                console.log("K is " + k)
+                for (let loop = 0; loop < sumArray.length; loop++) {
+                    let checkNum = k - sumArray[loop];
+                    console.log("The checkNum is " + checkNum);
+                    console.log("We are on the " + loop + " loop");
+                    for (let innerLoop = loop + 1; innerLoop < sumArray.length; innerLoop++) {
+                        console.log("We are on the inner loop " + innerLoop + " loop");
+                        let innerCheck = sumArray[innerLoop];
+                        console.log("Inner check is " + innerCheck)
+                        if (checkNum == innerCheck) {
+                            $("#sumOutput").text(`Great Job! You got it right. ${sumArray[loop]} + ${sumArray[innerLoop]} = ${k}!`)
+                            return;
+                        }
+                    }
+                    if (loop == sumArray.length - 1) {
+                        $("#sumOutput").text(`Sorry, that's the wrong answer. Try again and see if you can get it right!`)
                     }
                 }
-                if (loop == soafArray.length - 1) {
-                    $("#soafOutput").text(`K value not found!`)
-                }
-            }
-        })
+            })
 
 
-    </script>
+        </script>
 
 </body>
 </html>
