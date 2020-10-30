@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="icon" href="dc2.png" />
+    <link href="Content/prism.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -54,11 +55,48 @@
             <div class="col-lg-12 text-center">
                 <h1 class="mt-5">Sum of All Fears Coding Challenge</h1>
                 <hr?
-                <p class="lead">You need to use a Syntax Highlighter - Prism.js is default</p>
+                <p class="lead">See Code Below</p>
                 <ul class="list-unstyled">
                     <li>Code with highlighter</li>
-                    <li>Will display on this page</li>
                 </ul>
+                <hr />
+                <pre><code class="language-css">
+    <script>
+
+        $('#sumBtn').on('click', function () {
+            let sumArray = [10, 15, 3, 7];
+            console.log("The array is " + sumArray)
+            let k = Number($("#sumInput").val());
+            console.log("K is " + k)
+            for (let loop = 0; loop < sumArray.length; loop++) {
+                let checkNum = k - sumArray[loop];
+                console.log("The checkNum is " + checkNum);
+                console.log("We are on the " + loop + " loop");
+                for (let innerLoop = loop + 1; innerLoop < sumArray.length; innerLoop++) {
+                    console.log("We are on the inner loop " + innerLoop + " loop");
+                    let innerCheck = sumArray[innerLoop];
+                    console.log("Inner check is " + innerCheck)
+                    if (checkNum == innerCheck) {
+                        $("#sumOutput").text(`Great Job! You got it right. ${sumArray[loop]} + ${sumArray[innerLoop]} = ${k}!`)
+                        return;
+                    }
+                }
+                if (loop == sumArray.length - 1) {
+                    $("#sumOutput").text(`Sorry, that's the wrong answer. Try again and see if you can get it right!`)
+                }
+            }
+        })
+
+
+    </script>
+
+
+
+
+
+
+
+</code></pre>
             </div>
         </div>
     </div>
@@ -67,7 +105,7 @@
     <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="Scripts/prism.js"></script>
 </body>
 
 </html>
